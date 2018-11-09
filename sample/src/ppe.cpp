@@ -19,9 +19,9 @@ using namespace Poco::Net;
 using namespace Poco::Util;
 
 // Initialise static variables for thresholds
-int PPE::m_ppeThreshold       = 20;
-int PPE::m_personThreshold    = 0;
-int PPE::m_bodyPartsThreshold = 0;
+int PPE::m_ppeThreshold       = 50;
+int PPE::m_personThreshold    = 50;
+int PPE::m_bodyPartsThreshold = 50;
 int PPE::m_faceThreshold      = 50;
 
 PPE::PPE() : m_windowName("Cortexica PPE sample")
@@ -30,10 +30,10 @@ PPE::PPE() : m_windowName("Cortexica PPE sample")
     resizeWindow(m_windowName, 1920, 1080);
     setWindowProperty(m_windowName, CV_WND_PROP_FULLSCREEN, CV_WINDOW_FULLSCREEN);
 
-//    createTrackbar("PPE detection threshold", m_windowName, &m_ppeThreshold, 100, onTrackbar);
-//    createTrackbar("Person detection threshold", m_windowName, &m_personThreshold, 100, onTrackbar);
-//    createTrackbar("Body parts detectiwon threshold", m_windowName, &m_bodyPartsThreshold, 100, onTrackbar);
-//    createTrackbar("Face detection threshold", m_windowName, &m_faceThreshold, 100, onTrackbar);
+    createTrackbar("PPE detection threshold", m_windowName, &m_ppeThreshold, 100, onTrackbar);
+    createTrackbar("Person detection threshold", m_windowName, &m_personThreshold, 100, onTrackbar);
+    createTrackbar("Body parts detectiwon threshold", m_windowName, &m_bodyPartsThreshold, 100, onTrackbar);
+    createTrackbar("Face detection threshold", m_windowName, &m_faceThreshold, 100, onTrackbar);
 }
 
 int PPE::run() const
@@ -55,9 +55,9 @@ int PPE::run() const
     {
         Mat frame;
         capture.read(frame);
-//        putText(frame, "esc - exit", Point(0, 10), 1, 1, Scalar(255, 0, 0));
-  //      putText(frame, "space - single query", Point(0, 25), 1, 1, Scalar(255, 0, 0));
-    //    putText(frame, "c - continuous queries", Point(0, 40), 1, 1, Scalar(255, 0, 0));
+        putText(frame, "esc - exit", Point(0, 10), 1, 1, Scalar(255, 0, 0));
+        putText(frame, "space - single query", Point(0, 25), 1, 1, Scalar(255, 0, 0));
+        putText(frame, "c - continuous queries", Point(0, 40), 1, 1, Scalar(255, 0, 0));
 
         if (continuousPPEInProgress)
         {
