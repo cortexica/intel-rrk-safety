@@ -30,12 +30,24 @@ Recent advancements in edge computing gave raise to novel applications designed 
 
 *Fig.2 - Cortexica real-time PPE compliance monitoring solution installed at Axis Experience Centre, Madrid. This solution is continuously scanning workplace and raises an alarm if a person is not wearing a helmet and a high visibility jacket. The scanning is done using Axis pan/tilt/zoom (PTZ) camera and Axis radar capable of detecting motion within 50 meters range. The radar detects motion and then automatically moves the camera to the point of interest.*
 
+<figure>
+<img src="/whitepaper/images/pharma-ppe.jpg"/> 
+</figure>
+
+*Fig.3 - Cortexica PPE ingress solution designed for a pharmaceutical company. This solution detects if an employee is wearing boots, overall, gloves, hairnet, beardnet, head cover and transparent glasses. An employee is only allowed to enter a workplace once all the PPE checks have been approved.*
+
+<figure>
+<img src="/whitepaper/images/iotswc.JPG"/> 
+</figure>
+
+*Fig.4 - Cortexica was the first and only company to present a working demonstration utilising the latest Intel Myriad X VPU. This image shows one of our AI Safety (PPE) demos at the Intel booth. The second demo was installed at AAEON (Asus asoc.) stand.*
+
 ## Development Kit Overview
-It takes more than algorithms to deliver an AI driven product that solves a real-life problem. Working in partnership with UP we have developed UP Squared AI Edge-PPE monitoring, a development kit (see Figure 3) for health and safety professionals to create proof of concepts (POC) to full blown AI applications ready for live deployment. The development kit offers the following:
+It takes more than algorithms to deliver an AI driven product that solves a real-life problem. Working in partnership with UP we have developed UP Squared AI Edge-PPE monitoring, a development kit (see Figure 5) for health and safety professionals to create proof of concepts (POC) to full blown AI applications ready for live deployment. The development kit offers the following:
 
 * Real-time video analysis with advanced algorithms and machine learning to ensure employees are wearing the correct PPE for their working environment
 * Parallel detection of PPE, Face, Person, and Body parts leveraging CPU, GPU and VPU processors
-* Powered by the latest ultra-low-power high-performance Intel Myriad X VPU (see Figure 4)
+* Powered by the latest ultra-low-power high-performance Intel Myriad X VPU (see Figure 6)
 * Single image mode
 * Real-time mode
 * Made for POCs
@@ -44,16 +56,22 @@ It takes more than algorithms to deliver an AI driven product that solves a real
 <img src="/whitepaper/images/ppe-rrk.jpg"/> 
 </figure>
 
-*Fig.3 - The PPE monitoring development kit is available to purchase as an off-the-shelf solution, complete with hardware and software configuration, and detailed step-by-step guides to help you start prototyping your next AI monitoring or video surveillance project. For health and safety professions, this development kit assists the creation of a PPE monitoring system, and for industries at large, an AI driven surveillance application.*
+*Fig.5 - The PPE monitoring development kit is available to purchase as an off-the-shelf solution, complete with hardware and software configuration, and detailed step-by-step guides to help you start prototyping your next AI monitoring or video surveillance project. For health and safety professions, this development kit assists the creation of a PPE monitoring system, and for industries at large, an AI driven surveillance application.*
 
 <figure>
 <img src="/whitepaper/images/myriad-x.jpg"/> 
 </figure>
 
-*Fig.4 - The AI CORE X is powered by the recently released Intel® Movidius Myriad X, a third-generation vision processing unit (VPU) that is the first in its class to include a Neural Compute Engine – a dedicated hardware accelerator for deep neural networks, trainable with industry-standard tools.*
+*Fig.6 - The AI CORE X is powered by the recently released Intel® Movidius Myriad X, a third-generation vision processing unit (VPU) that is the first in its class to include a Neural Compute Engine – a dedicated hardware accelerator for deep neural networks, trainable with industry-standard tools.*
 
 ## Software
 This section provides a detailed description of the software architecture, its components and their integration through the REST API.
+
+<figure>
+<img src="/whitepaper/images/arch.jpg"/> 
+</figure>
+
+*Fig.5 - Software architecture diagram showing the PPE service and the demo sample. The PPE service receives an image and a JSON specifying simple options and returns a JSON with detection results containing bounding boxes, corresponding object classes and the time in milliseconds that it took to run a single inference.*
 
 ### PPE Service
 The PPE service is a C++ application running a HTTP server with a REST API. This service is able to run inference on multiple deep learning models in parallel on all the available CPU, GPU and VPU processors to obtain the results in the shortest time possible. The service starts automatically running after the operating system is initialised and then continues running on the port 8081. The REST API has the following endpoints that can be used to interact with the service:
@@ -73,6 +91,27 @@ Both endpoints accept multipart/form-data POST requests containing an image and 
 “faceThreshold”: 0.6,
 “personThreshold”: 0.6,
 “bodyPartsThreshold”: 0.6
+}
+```
+
+Since the PPE service provides the REST interface the integration with your own application is very easy and can be also done accross the network. The sample application described in the next section shows how to achieve this integration using C++ but you can use any programming language or method. For example, here is a curl request code:
+
+```shell
+{
+curl
+−−request POST
+−−url http://localhost:8081/ppe
+−−header ’content−type:multipart/form−data; boundary=−−−−WebKitFormBoundary’
+−−form’ options={
+“detectPPE “ : true,
+“detectFaces “ : true,
+“detectPersons “ : true,
+“detectBodyParts “ : true,
+“ppeThreshold “ : 0.6,
+“faceThreshold “ : 0.6,
+“personThreshold “ : 0.6,
+“bodyPartsThreshold “ : 0.6}’
+−−form image=@example.png
 }
 ```
 
@@ -116,6 +155,40 @@ where **ms** is inference time in milliseconds, **categoryClass** is the class o
 ```
 cv::Rect rect(cv::Point(xStart * width, yStart * height), cv::Point(xEnd * width, yEnd * height))
 ```
+
+### PPE Demo Sample
+This sample application was written in C++ to demonstrate how to send queries to and receive results from the PPE service via the REST API. The application source code is located under /home/upsquared/cortexica/sample/ and the compiled binary under the bin subdirectory. The application depends only on OpenCV and Poco libraries. To compile the sample run the following commands:
+
+```shell
+$ cd /home/upsquared/cortexica/sample/
+$ mkdir build
+$ cd build
+$ source /opt/intel/computer_vision_sdk/bin/setupvars.sh
+$ cmake ..
+$ make
+```
+
+You can run the application using as follows:
+
+```shell
+$ bin/sample
+```
+Here is an example of sample application front-end showing the detection results plotted as bounding boxes. The four sliders at the top are used to adjust the sensitivity of the models or to turn them off completely.
+
+<figure>
+<img src="/whitepaper/images/sample.png"/> 
+</figure>
+
+### Performance
+The PPE service provides four different models that are mapped to CPU, GPU and VPU processors. There are four models but only three processors and therefore the GPU can in certain configurations run two models. The Myriad X is able to run face detection at around 25 ms per image (40 FPS). The GPU can run the PPE or person detection at approximately 50 ms (20 FPS). If both PPE and person detection models are enabled then this latency increases to around 85 ms (12 FPS) as the models need to share the same resources. The body parts detection runs on the CPU at around 50 ms (20 FPS). The final latency of the PPE service will depend on what models have been enabled. For example, if only face detection is used then the frame-rate will be around 40 FPS. However, if the PPE model is also enabled then the frame-rate drops to around 20 FPS as the final latency can only be as low as the latency of the slowest model, which in this case would be the PPE moel running on the GPU at around 50 milliseconds.
+
+### License and Limitations
+The development kit has been primarily designed to enable the evaluation of our technology and to facilitate seamless integration with other applications with the goal of creating POCs. If a client is satisfied with the POC and wants to use it for commercial purposes then the client should contact us to obtain a license and a production grade software with models optimised for that specific use case. As a consequence, using this development kit for commercial purposes is prohibited. The following measures have been implemented to prevent unauthorised use of this development kit:
+
+* Single image mode is restricted to a maximum of 10 consecutive requests. There is a 180 seconds time out afterwards during which no requests can be made. Additional requests can be made after this time out has finished.
+* Real-time mode allows unlimited number of frames within a 20 seconds period. There is a 180 seconds time out after these 20 seconds during which no requests can be made. Additional requests can be made after this time out has finished.
+* The PPE service is only available as a binary, which will expire after one year from the first time the development kit was powered on.
+* Models have been encrypted and therefore their use outside the scope of this RRK is not possible.
 
 ## References
 [1] U.S. Department of Labor, Bureau of Labor Statistics, Accidents Involving Head Injuries, Report 605, (Washington, D.C., Government Printing Office, July 1980) p. 1
