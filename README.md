@@ -97,7 +97,6 @@ Both endpoints accept multipart/form-data POST requests containing an image and 
 Since the PPE service provides the REST interface the integration with your own application is very easy and can be also done accross the network. The sample application described in the next section shows how to achieve this integration using C++ but you can use any programming language or method. For example, here is a curl request code:
 
 ```shell
-{
 curl
 −−request POST
 −−url http://localhost:8081/ppe
@@ -112,7 +111,6 @@ curl
 “personThreshold “ : 0.6,
 “bodyPartsThreshold “ : 0.6}’
 −−form image=@example.png
-}
 ```
 
 The following snipped shows a JSON results example:
@@ -189,6 +187,11 @@ The development kit has been primarily designed to enable the evaluation of our 
 * Real-time mode allows unlimited number of frames within a 20 seconds period. There is a 180 seconds time out after these 20 seconds during which no requests can be made. Additional requests can be made after this time out has finished.
 * The PPE service is only available as a binary, which will expire after one year from the first time the development kit was powered on.
 * Models have been encrypted and therefore their use outside the scope of this RRK is not possible.
+
+## Videos
+* [PPE Ingress](https://vimeo.com/cortexica/ingressconstruction)
+* [PPE Continuous Monitoring](https://vimeo.com/cortexica/continuousmonitoringradar)
+* [Artificial Intelligence on the Edge - Safety](https://player.vimeo.com/video/297960010)
 
 ## References
 [1] U.S. Department of Labor, Bureau of Labor Statistics, Accidents Involving Head Injuries, Report 605, (Washington, D.C., Government Printing Office, July 1980) p. 1
