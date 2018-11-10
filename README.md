@@ -8,7 +8,7 @@ martin@cortexica.com
 Personal Protective Equipment (PPE) is the equipment that protects the user against health or safety risks. Not wearing PPE dramatically increases the chances of injuries and in many situations also of financial losses due to fines for injuries and death of workers as well as contamination caused by not wearing gloves, hairnets, shoe covers, etc. Recent advancements in edge computing hardware coupled with ever more efficient software have enabled novel solutions with the potential to prevent injuries, save lives as well as money and time. This document describes the world’s first edge compute solution for PPE ingress and real- time PPE compliance monitoring.
 
 <p align="center">
-<img src="https://github.com/cortexica/intel-rrk-safety/blob/master/whitepaper/images/stats.png"/> 
+<img src="https://github.com/cortexica/intel-rrk-safety/blob/master/whitepaper/images/stats.png?raw=true"/> 
 </p>
 
 ## Introduction
