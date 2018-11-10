@@ -31,7 +31,7 @@ Recent advancements in edge computing gave raise to novel applications designed 
 *Fig.2 - Cortexica real-time PPE compliance monitoring solution installed at Axis Experience Centre, Madrid. This solution is continuously scanning workplace and raises an alarm if a person is not wearing a helmet and a high visibility jacket. The scanning is done using Axis pan/tilt/zoom (PTZ) camera and Axis radar capable of detecting motion within 50 meters range. The radar detects motion and then automatically moves the camera to the point of interest.*
 
 <figure>
-<img src="https://raw.githubusercontent.com/cortexica/intel-rrk-safety/master/whitepaper/images/images/pharma-ppe.jpg"/> 
+<img src="https://raw.githubusercontent.com/cortexica/intel-rrk-safety/master/whitepaper/images/pharma-ppe.jpg"/> 
 </figure>
 
 *Fig.3 - Cortexica PPE ingress solution designed for a pharmaceutical company. This solution detects if an employee is wearing boots, overall, gloves, hairnet, beardnet, head cover and transparent glasses. An employee is only allowed to enter a workplace once all the PPE checks have been approved.*
