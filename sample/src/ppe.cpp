@@ -69,7 +69,6 @@ int PPE::run() const
             {
                 continuousPPEInProgress = false;
                 continue;
-                // Draw all boxes
             }
 
             drawResults(results, frame);
