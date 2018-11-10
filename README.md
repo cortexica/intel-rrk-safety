@@ -189,8 +189,8 @@ The development kit has been primarily designed to enable the evaluation of our 
 * Real-time mode allows unlimited number of frames within a 20 seconds period
     * There is a 180 seconds time out after these 20 seconds during which no requests can be made
     * Additional requests can be made after this time out has finished.
-* The PPE service is only available as a binary that will expire after one year from the first time the development kit was powered on
-* Models have been encrypted and therefore their use outside the scope of this RRK is not possible
+* The PPE service will expire after one year from its first use
+* Models have been encrypted to prevent unahuthorised use
 
 ## Videos
 * [PPE Ingress](https://vimeo.com/cortexica/ingressconstruction)
