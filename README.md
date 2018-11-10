@@ -183,14 +183,14 @@ The PPE service provides four different models that are mapped to CPU, GPU and V
 ### License and Limitations
 The development kit has been primarily designed to enable the evaluation of our technology and to facilitate seamless integration with other applications with the goal of creating POCs. If a client is satisfied with the POC and wants to use it for commercial purposes then the client should contact us to obtain a license and a production grade software with models optimised for that specific use case. As a consequence, using this development kit for commercial purposes is prohibited. The following measures have been implemented to prevent unauthorised use of this development kit:
 
+* The PPE service will expire in one year from its first use
+* Models have been encrypted to prevent unahuthorised use
 * Single image mode is restricted to a maximum of 10 consecutive requests
     * There is a 180 seconds time out afterwards during which no requests can be made
     * Additional requests can be made after this time out has finished
 * Real-time mode allows unlimited number of frames within a 20 seconds period
     * There is a 180 seconds time out after these 20 seconds during which no requests can be made
-    * Additional requests can be made after this time out has finished.
-* The PPE service will expire after one year from its first use
-* Models have been encrypted to prevent unahuthorised use
+    * Additional requests can be made after this time out has finished
 
 ## Videos
 * [PPE Ingress](https://vimeo.com/cortexica/ingressconstruction)
