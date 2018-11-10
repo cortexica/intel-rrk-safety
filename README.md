@@ -8,7 +8,7 @@ martin@cortexica.com
 Personal Protective Equipment (PPE) is the equipment that protects the user against health or safety risks. Not wearing PPE dramatically increases the chances of injuries and in many situations also of financial losses due to fines for injuries and death of workers as well as contamination caused by not wearing gloves, hairnets, shoe covers, etc. Recent advancements in edge computing hardware coupled with ever more efficient software have enabled novel solutions with the potential to prevent injuries, save lives as well as money and time. This document describes the world’s first edge compute solution for PPE ingress and real- time PPE compliance monitoring.
 
 <p align="center">
-<img src="https://github.com/cortexica/intel-rrk-safety/blob/master/whitepaper/images/stats.png?raw=true"/> 
+<img src="https://raw.githubusercontent.com/cortexica/intel-rrk-safety/master/whitepaper/images/stats.png"/> 
 </p>
 
 ## Introduction
@@ -19,25 +19,25 @@ PPE is designed to protect users from serious injuries or illnesses resulting fr
 Recent advancements in edge computing gave raise to novel applications designed to process data right at its source effectively minimising latency and allowing real-time processing. This paper presents a solution for PPE ingress and compliance monitoring that runs in real-time and entirely on the edge.
 
 <figure>
-<img src="https://github.com/cortexica/intel-rrk-safety/blob/master/whitepaper/images/access_control.jpg?raw=true"/> 
+<img src="https://raw.githubusercontent.com/cortexica/intel-rrk-safety/master/whitepaper/images/access_control.jpg"/> 
 </figure>
 
 *Fig.1 - Cortexica PPE ingress solution installed at Axis Experience Centre, Madrid. This solution detects if a person is wearing a helmet and a high visibility jacket. A person is only allowed to enter a workplace once all the PPE checks have been approved.*
 
 <figure>
-<img src="https://github.com/cortexica/intel-rrk-safety/blob/master/whitepaper/images/continuous_monitoring.png?raw=true"/> 
+<img src="https://raw.githubusercontent.com/cortexica/intel-rrk-safety/master/whitepaper/images/continuous_monitoring.png"/> 
 </figure>
 
 *Fig.2 - Cortexica real-time PPE compliance monitoring solution installed at Axis Experience Centre, Madrid. This solution is continuously scanning workplace and raises an alarm if a person is not wearing a helmet and a high visibility jacket. The scanning is done using Axis pan/tilt/zoom (PTZ) camera and Axis radar capable of detecting motion within 50 meters range. The radar detects motion and then automatically moves the camera to the point of interest.*
 
 <figure>
-<img src="https://github.com/cortexica/intel-rrk-safety/blob/master/whitepaper/images/pharma-ppe.jpg?raw=true"/> 
+<img src="https://raw.githubusercontent.com/cortexica/intel-rrk-safety/master/whitepaper/images/images/pharma-ppe.jpg"/> 
 </figure>
 
 *Fig.3 - Cortexica PPE ingress solution designed for a pharmaceutical company. This solution detects if an employee is wearing boots, overall, gloves, hairnet, beardnet, head cover and transparent glasses. An employee is only allowed to enter a workplace once all the PPE checks have been approved.*
 
 <figure>
-<img src="https://github.com/cortexica/intel-rrk-safety/blob/master/whitepaper/images/iotswc.JPG?raw=true"/> 
+<img src="https://raw.githubusercontent.com/cortexica/intel-rrk-safety/master/whitepaper/images/iotswc.JPG"/> 
 </figure>
 
 *Fig.4 - Cortexica was the first and only company to present a working demonstration utilising the latest Intel Myriad X VPU. This image shows one of our AI Safety (PPE) demos at the Intel booth. The second demo was installed at AAEON (Asus asoc.) stand.*
@@ -53,13 +53,13 @@ It takes more than algorithms to deliver an AI driven product that solves a real
 * Made for POCs
 
 <figure>
-<img src="https://github.com/cortexica/intel-rrk-safety/blob/master/whitepaper/images/ppe-rrk.jpg?raw=true"/> 
+<img src="https://raw.githubusercontent.com/cortexica/intel-rrk-safety/master/whitepaper/images/ppe-rrk.jpg"/> 
 </figure>
 
 *Fig.5 - The PPE monitoring development kit is available to purchase as an off-the-shelf solution, complete with hardware and software configuration, and detailed step-by-step guides to help you start prototyping your next AI monitoring or video surveillance project. For health and safety professions, this development kit assists the creation of a PPE monitoring system, and for industries at large, an AI driven surveillance application.*
 
 <figure>
-<img src="https://github.com/cortexica/intel-rrk-safety/blob/master/whitepaper/images/myriad-x.jpg?raw=true"/> 
+<img src="https://raw.githubusercontent.com/cortexica/intel-rrk-safety/master/whitepaper/images/myriad-x.jpg"/> 
 </figure>
 
 *Fig.6 - The AI CORE X is powered by the recently released Intel® Movidius Myriad X, a third-generation vision processing unit (VPU) that is the first in its class to include a Neural Compute Engine – a dedicated hardware accelerator for deep neural networks, trainable with industry-standard tools.*
@@ -68,7 +68,7 @@ It takes more than algorithms to deliver an AI driven product that solves a real
 This section provides a detailed description of the software architecture, its components and their integration through the REST API.
 
 <figure>
-<img src="https://github.com/cortexica/intel-rrk-safety/blob/master/whitepaper/images/arch.jpg?raw=true"/> 
+<img src="https://raw.githubusercontent.com/cortexica/intel-rrk-safety/master/whitepaper/images/arch.jpg"/> 
 </figure>
 
 *Fig.5 - Software architecture diagram showing the PPE service and the demo sample. The PPE service receives an image and a JSON specifying simple options and returns a JSON with detection results containing bounding boxes, corresponding object classes and the time in milliseconds that it took to run a single inference.*
