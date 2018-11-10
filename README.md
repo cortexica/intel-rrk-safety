@@ -183,10 +183,14 @@ The PPE service provides four different models that are mapped to CPU, GPU and V
 ### License and Limitations
 The development kit has been primarily designed to enable the evaluation of our technology and to facilitate seamless integration with other applications with the goal of creating POCs. If a client is satisfied with the POC and wants to use it for commercial purposes then the client should contact us to obtain a license and a production grade software with models optimised for that specific use case. As a consequence, using this development kit for commercial purposes is prohibited. The following measures have been implemented to prevent unauthorised use of this development kit:
 
-* Single image mode is restricted to a maximum of 10 consecutive requests. There is a 180 seconds time out afterwards during which no requests can be made. Additional requests can be made after this time out has finished.
-* Real-time mode allows unlimited number of frames within a 20 seconds period. There is a 180 seconds time out after these 20 seconds during which no requests can be made. Additional requests can be made after this time out has finished.
-* The PPE service is only available as a binary, which will expire after one year from the first time the development kit was powered on.
-* Models have been encrypted and therefore their use outside the scope of this RRK is not possible.
+* Single image mode is restricted to a maximum of 10 consecutive requests
+    * There is a 180 seconds time out afterwards during which no requests can be made
+    * Additional requests can be made after this time out has finished
+* Real-time mode allows unlimited number of frames within a 20 seconds period
+    * There is a 180 seconds time out after these 20 seconds during which no requests can be made
+    * Additional requests can be made after this time out has finished.
+* The PPE service is only available as a binary that will expire after one year from the first time the development kit was powered on
+* Models have been encrypted and therefore their use outside the scope of this RRK is not possible
 
 ## Videos
 * [PPE Ingress](https://vimeo.com/cortexica/ingressconstruction)
