@@ -1,5 +1,5 @@
 # Real-time PPE Monitoring on the Edge
-powered by the latest ultra-low-power high-performance Intel Myriad X VPU
+powered by the latest ultra-low-power high-performance [Intel Myriad X VPU](https://www.movidius.com/myriadx)
 
 [Martin Peniak, PhD](http://www.martinpeniak.com) — [Innovation Department](https://www.cortexica.com/research-innovation/)  
 martin@cortexica.com
@@ -63,6 +63,12 @@ It takes more than algorithms to deliver an AI driven product that solves a real
 </figure>
 
 *Fig.6 - The AI CORE X is powered by the recently released Intel® Movidius Myriad X, a third-generation vision processing unit (VPU) that is the first in its class to include a Neural Compute Engine – a dedicated hardware accelerator for deep neural networks, trainable with industry-standard tools.*
+
+<figure>
+<img src="https://raw.githubusercontent.com/cortexica/intel-rrk-safety/master/whitepaper/images/myriad-x.png"/> 
+</figure>
+
+*Fig.7 - Myriad™X features the all-new Neural Compute Engine - a purpose-built hardware accelerator designed to dramatically increase performance of deep neural networks without compromising the low power characteristics of the Myriad VPU product line. Featuring an array of MAC blocks and directly interfacing with the intelligent memory fabric, the Neural Compute Engine is able to rapidly perform the calculations necessary for deep inference without hitting the so-called "data wall" bottleneck encountered by other processor designs. Combining the neural network performance of the 16 proprietary SHAVE cores with the neural compute engine, Myriad X delivers 10X the performance compared to previous generations.*
 
 ## Software
 This section provides a detailed description of the software architecture, its components and their integration through the REST API.
