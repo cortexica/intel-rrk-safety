@@ -47,7 +47,7 @@ It takes more than algorithms to deliver an AI driven product that solves a real
 
 * Real-time video analysis with advanced algorithms and machine learning to ensure employees are wearing the correct PPE for their working environment
 * Parallel detection of PPE, Face, Person, and Body parts leveraging CPU, GPU and VPU processors
-* Powered by the latest ultra-low-power high-performance Intel Myriad X VPU (see Figure 6)
+* Powered by the latest ultra-low-power high-performance Intel Myriad X VPU (see Figures 6 and 7)
 * Single image mode
 * Real-time mode
 * Made for POCs
@@ -77,7 +77,7 @@ This section provides a detailed description of the software architecture, its c
 <img src="https://raw.githubusercontent.com/cortexica/intel-rrk-safety/master/whitepaper/images/arch.jpg"/> 
 </figure>
 
-*Fig.5 - Software architecture diagram showing the PPE service and the demo sample. The PPE service receives an image and a JSON specifying simple options and returns a JSON with detection results containing bounding boxes, corresponding object classes and the time in milliseconds that it took to run a single inference.*
+*Fig.8 - Software architecture diagram showing the PPE service and the demo sample. The PPE service receives an image and a JSON specifying simple options and returns a JSON with detection results containing bounding boxes, corresponding object classes and the time in milliseconds that it took to run a single inference.*
 
 ### PPE Service
 The PPE service is a C++ application running a HTTP server with a REST API. This service is able to run inference on multiple deep learning models in parallel on all the available CPU, GPU and VPU processors to obtain the results in the shortest time possible. The service starts automatically running after the operating system is initialised and then continues running on the port 8081. The REST API has the following endpoints that can be used to interact with the service:
