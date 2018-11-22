@@ -23,4 +23,4 @@ add_executable(${PROJECT_NAME} ${INCLUDES} ${SOURCES})
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
 target_link_libraries(${PROJECT_NAME} ${Poco_LIBRARIES} ${OpenCV_LIBS})
-install(TARGETS ${PROJECT_NAME} DESTINATION /home/upsquared/cortexica/sample/bin/)
+install(TARGETS ${PROJECT_NAME} DESTINATION /home/upsquared/cortexica/samples/c++/bin/)
