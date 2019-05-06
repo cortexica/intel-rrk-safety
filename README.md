@@ -82,8 +82,8 @@ This section provides a detailed description of the software architecture, its c
 ### PPE Service
 The PPE service is a C++ application running a HTTP server with a REST API. This service is able to run inference on multiple deep learning models in parallel on all the available CPU, GPU and VPU processors to obtain the results in the shortest time possible. The service starts automatically running after the operating system is initialised and then continues running on the port 8081. The REST API has the following endpoints that can be used to interact with the service:
 
-* **/ppe** – single image mode allowing maximum of 10 requests followed by 180 seconds timeout
-* **/continuous-ppe** – continuous mode allowing unlimited number of images within 20 seconds followed by 180 seconds timeout
+* **/ppe** – single image mode allowing maximum of 30 requests followed by 90 seconds timeout
+* **/continuous-ppe** – continuous mode allowing unlimited number of images within 60 seconds followed by 90 seconds timeout
 
 Both endpoints accept multipart/form-data POST requests containing an image and a JSON specifying the query options. For example the following JSON options example enables all the four models with thresholds set to 60% confidence. The threshold parameters are optional and if no threshold is set then the default value of 50% confidence will be applied.
 
@@ -183,22 +183,20 @@ Here is an example of sample application front-end showing the detection results
 <img src="https://github.com/cortexica/intel-rrk-safety/blob/master/whitepaper/images/sample.png?raw=true"/> 
 </figure>
 
-### Performance
-The PPE service provides four different models that are mapped to CPU, GPU and VPU processors. There are four models but only three processors and therefore the GPU can in certain configurations run two models. The Myriad X is able to run face detection at around 25 ms per image (40 FPS). The GPU can run the PPE or person detection at approximately 50 ms (20 FPS). If both PPE and person detection models are enabled then this latency increases to around 85 ms (12 FPS) as the models need to share the same resources. The body parts detection runs on the CPU at around 50 ms (20 FPS). The final latency of the PPE service will depend on what models have been enabled. For example, if only face detection is used then the frame-rate will be around 40 FPS. However, if the PPE model is also enabled then the frame-rate drops to around 20 FPS as the final latency can only be as low as the latency of the slowest model, which in this case would be the PPE moel running on the GPU at around 50 milliseconds.
-
 ### License and Limitations
 The development kit has been primarily designed to enable the evaluation of our technology and to facilitate seamless integration with other applications with the goal of creating POCs. If a client is satisfied with the POC and wants to use it for commercial purposes then the client should contact us to obtain a license and a production grade software with models optimised for that specific use case. As a consequence, using this development kit for commercial purposes is prohibited. The following measures have been implemented to prevent unauthorised use of this development kit:
 
 * The PPE service will expire in one year from its first use
 * Models have been encrypted to prevent unauthorised use
-* Single image mode is restricted to a maximum of 10 consecutive requests
-    * There is a 180 seconds time out afterwards during which no requests can be made
+* Single image mode is restricted to a maximum of 30 consecutive requests
+    * There is a 90 seconds time out afterwards during which no requests can be made
     * Additional requests can be made after this time out has finished
-* Real-time mode allows unlimited number of frames within a 20 seconds period
-    * There is a 180 seconds time out after these 20 seconds during which no requests can be made
+* Real-time mode allows unlimited number of frames within a 60 seconds period
+    * There is a 90 seconds time out after these 20 seconds during which no requests can be made
     * Additional requests can be made after this time out has finished
 
 ## Videos
+* [AI-Safe](https://vimeo.com/333964736)
 * [PPE Ingress](https://vimeo.com/cortexica/ingressconstruction)
 * [PPE Continuous Monitoring](https://vimeo.com/cortexica/continuousmonitoringradar)
 * [Artificial Intelligence on the Edge - Safety](https://player.vimeo.com/video/297960010)
